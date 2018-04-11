@@ -1,0 +1,20 @@
+$(document).ready(function(){
+            $("#search").click(function(){
+                var query = $('#title').val();
+                console.log(query);
+                $.ajax({
+                    type:'GET',
+                    url: 'http://api.themoviedb.org/3/search/movie?api_key=' + api_key + '&query=' + query,
+                    dataType: 'jsonp',
+                    jsonpCallback: 'testing',
+                    success: function(response){
+                        $('#search_results').append('<li>' + response.results[0].title + ' ' + response.results[0].vote_average  + ' ' +response.results[0].release_date +'</li>');
+                    });
+                });
+            });
+        });
+        function localJsonpCallback(json) {
+            console.log(json);
+        }
+
+Ajax call without refreshing the page it will display the results. 

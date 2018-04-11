@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css"/> 
+    <title>MovieAPI</title>
+
+</head>
+<body>
+    <div class="container">
+        <form action="/movies/{movietitle}" method="POST">
+            <h2>Movie Lookup</h2>
+            Search For a movie: <input type="text" name="movietitle" id="title"><input type="submit" value="Search" id="search">
+            <div class="moviebox"></div>
+            @{
+                foreach(var item in @ViewBag.movies)
+                {
+                    <p>@item["name"]
+                    Rating: @item["rating"]
+                    Released @item["released"]</p>
+                }
+            }
+            </div>
+        </form>
+    </div>
+</body>
+</html>
